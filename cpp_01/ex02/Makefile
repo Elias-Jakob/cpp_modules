@@ -1,9 +1,9 @@
-NAME = brainz
+NAME = this_is_brain
 CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 DEPFLAGS = -MMD -MP
 
-SRC = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 DEP = $(OBJ:.o=.d)
 
@@ -17,7 +17,7 @@ $(NAME): $(OBJ)
 
 clean:
 	rm -f $(OBJ)
-	@rm -f $(OBJ:.o=.d)
+	@rm -f $(DEP)
 
 fclean: clean
 	rm -f $(NAME)
