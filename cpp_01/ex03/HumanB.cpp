@@ -1,21 +1,20 @@
 # include "HumanB.hpp"
 
-HumanB::HumanB(std::string n)
+HumanB::HumanB(std::string set_name)
 {
-	name = n;
-}
-
-HumanB::~HumanB()
-{
-	std::cout << "Destructing HumanB" << std::endl;
+	name = set_name;
+	weapon = NULL;
 }
 
 void	HumanB::attack(void)
 {
-	std::cout << name << " attacks with their " << weapon.getType() << std::endl;
+	if (weapon)
+		std::cout << name << " attacks with their " << weapon->getType() << std::endl;
+	else
+		std::cout << name << " attacks with their bare hands???" << std::endl;
 }
 
-void	HumanB::setWeapon(Weapon w)
+void	HumanB::setWeapon(Weapon& w)
 {
-	weapon = w;
+	weapon = &w;
 }

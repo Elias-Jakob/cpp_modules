@@ -1,9 +1,9 @@
-NAME = violent_crimes
+NAME = sed_is_for_losers
 CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 DEPFLAGS = -MMD -MP
 
-SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 DEP = $(OBJ:.o=.d)
 

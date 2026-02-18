@@ -1,18 +1,8 @@
 # include "Weapon.hpp"
 
-Weapon::Weapon()
+Weapon::Weapon(std::string set_type)
 {
-	type = "default weapon";
-}
-
-Weapon::~Weapon()
-{
-	std::cout << "Destructing weapon" << std::endl;
-}
-
-Weapon::Weapon(std::string type_name)
-{
-	type = type_name;
+	type = set_type;
 }
 
 std::string	Weapon::getType()
@@ -20,8 +10,8 @@ std::string	Weapon::getType()
 	return (type);
 }
 
-void	Weapon::setType(std::string type_name)
+void	Weapon::setType(std::string set_type)
 {
-	type = type_name;
+	type = set_type;
 }
 
