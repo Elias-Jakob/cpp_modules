@@ -13,10 +13,12 @@ int	main(void)
 		if (input == "ADD")
 			pb.addContact();
 		else if (input == "SEARCH")
+		{
 			pb.searchContact();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
 		else if (input != "EXIT")
 			std::cout << "The program only accepts ADD, SEARCH and EXIT." << std::endl;
 	}
-	std::cout << "Goodbye!" << std::endl;
 	return (0);
 }

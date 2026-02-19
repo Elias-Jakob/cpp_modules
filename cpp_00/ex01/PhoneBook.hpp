@@ -4,6 +4,8 @@
 # include "Contact.hpp"
 # include <iostream>
 # include <iomanip>
+# include <limits>
+// do we need this?
 # include <cstdlib>
 
 
@@ -11,6 +13,7 @@ class PhoneBook
 {
 	public:
 		PhoneBook();
+		~PhoneBook();
 		void	addContact();
 		void	searchContact();
 	private:

@@ -7,11 +7,18 @@ PhoneBook::PhoneBook() :
 		<< "Usage: There are three commands to use: ADD, SEARCH and EXIT" << std::endl;
 }
 
+PhoneBook::~PhoneBook()
+{
+	if (std::cin.eof())
+		std::cout << std::endl;
+	std::cout << "Bye bye!" << std::endl;
+}
+
 std::string	PhoneBook::getInput(std::string field)
 {
 	std::string	input;
 
-	while (!std::cin.eof() && !std::cin.bad() && !std::cin.fail())
+	while (!std::cin.eof())
 	{
 		std::cout << "Please enter the " << field << " of your new contact: ";
 		if (!std::getline(std::cin, input) || input != "")
@@ -29,7 +36,8 @@ void	PhoneBook::addContact()
 	newContactIndex++;
 	if (newContactIndex >= MAX_N_CONTACTS)
 		newContactIndex = 0;
-	std::cout << "Contact saved!" << std::endl;
+	if (!std::cin.eof())
+		std::cout << "Contact saved!" << std::endl;
 }
 
 void	PhoneBook::truncateField(std::string field, bool last = false)
@@ -66,15 +74,14 @@ void	PhoneBook::searchContact()
 
 	displayContacts();
 	std::cout << "Enter the index of the contact to display: ";
-	if (!std::getline(std::cin, input))
+	std::cin >> contactIndex;
+	if (std::cin.eof())
 		return ;
-	contactIndex = std::atoi(input.c_str());
-	if (contactIndex < 0 || contactIndex >= MAX_N_CONTACTS)
+	if (std::cin.fail() || contactIndex < 0 || contactIndex >= MAX_N_CONTACTS)
 	{
 		std::cout << "Invalid index!" << std::endl;
 		return ;
 	}
-	// TODO: check input
 	Contact&	c = contacts[contactIndex];
 	std::cout << "First name: " << c.firstName << "\n"
 		<< "Last name: " << c.lastName << "\n"
