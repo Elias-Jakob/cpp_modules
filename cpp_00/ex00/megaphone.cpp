@@ -1,4 +1,4 @@
-#include <iostream>
+# include <iostream>
 
 void	str_to_uppper(char *str)
 {
