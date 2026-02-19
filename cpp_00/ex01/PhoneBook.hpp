@@ -2,16 +2,23 @@
 # define PHONEBOOK_HPP
 # define MAX_N_CONTACTS 8
 # include "Contact.hpp"
+# include <iostream>
+# include <iomanip>
+# include <cstdlib>
 
 
 class PhoneBook
 {
 	public:
+		PhoneBook();
 		void	addContact();
-		void	displayContacts();
-		void	searchContact(std::string searchIndex);
+		void	searchContact();
 	private:
 		Contact	contacts[MAX_N_CONTACTS];
+		int	newContactIndex;
+		std::string	getInput(std::string prompt);
+		void	displayContacts();
+		void	truncateField(std::string field, bool last);
 };
 
 #endif
