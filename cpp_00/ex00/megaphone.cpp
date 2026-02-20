@@ -1,6 +1,7 @@
 # include <iostream>
+# include <string>
 
-void	str_to_uppper(char *str)
+void	str_to_uppper(std::string str)
 {
 	for (int	s = 0; str[s]; s++)
 		std::cout << (char)std::toupper(str[s]);
@@ -8,12 +9,15 @@ void	str_to_uppper(char *str)
 
 int	main(int argc, char *argv[])
 {
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
+	std::string	str;
+
+	if (argc == 1 || (argc == 2 && std::string(argv[1]).empty()))
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	for (int	i = 1; i < argc; i++)
 	{
-		str_to_uppper(argv[i]);
-		if (i < argc - 1)
+		str = argv[i];
+		str_to_uppper(str);
+		if (i < argc - 1 && !str.empty() && !std::string(argv[i + 1]).empty())
 			std::cout << " ";
 	}
 	std::cout << std::endl;

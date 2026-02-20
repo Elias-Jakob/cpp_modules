@@ -75,11 +75,12 @@ void	PhoneBook::searchContact()
 	displayContacts();
 	std::cout << "Enter the index of the contact to display: ";
 	std::cin >> contactIndex;
-	if (std::cin.eof())
+	if (std::cin.eof() && !std::cin.fail())
 		return ;
 	if (std::cin.fail() || contactIndex < 0 || contactIndex >= MAX_N_CONTACTS)
 	{
 		std::cout << "Invalid index!" << std::endl;
+		std::cin.clear();
 		return ;
 	}
 	Contact&	c = contacts[contactIndex];
