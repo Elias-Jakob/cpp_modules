@@ -1,12 +1,13 @@
 # include <iostream>
+# include <string>
 # include <fstream>
 
 int	open_streams(std::string filename, std::ifstream& infile, std::ofstream& outfile)
 {
-	infile.open(filename);
+	infile.open(filename.c_str());
 	if (infile.fail())
 		return (std::cout << "Failed to open file: " << filename << std::endl, 0);
-	outfile.open(filename + ".replace");
+	outfile.open((filename + ".replace").c_str());
 	if (outfile.fail())
 	{
 		infile.close();

@@ -5,11 +5,6 @@ Zombie::Zombie()
 	name = "default zombie";
 }
 
-Zombie::Zombie(std::string n)
-{
-	name = n;
-}
-
 Zombie::~Zombie()
 {
 	std::cout << "Destructing: " << name << std::endl;
@@ -17,5 +12,10 @@ Zombie::~Zombie()
 
 void	Zombie::announce(void)
 {
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << name << ": braiiiiiiinnnzzzz..." << std::endl;
+}
+
+void	Zombie::setName(std::string n)
+{
+	name = n;
 }
