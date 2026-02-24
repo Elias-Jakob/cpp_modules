@@ -2,7 +2,7 @@
 # include <string>
 # include <fstream>
 
-int	open_streams(std::string filename, std::ifstream& infile, std::ofstream& outfile)
+static int	open_streams(std::string filename, std::ifstream& infile, std::ofstream& outfile)
 {
 	infile.open(filename.c_str());
 	if (infile.fail())
@@ -17,7 +17,7 @@ int	open_streams(std::string filename, std::ifstream& infile, std::ofstream& out
 	return (1);
 }
 
-void	find_and_replace(std::ifstream& infile, std::ofstream& outfile, std::string s1, std::string s2)
+static void	find_and_replace(std::ifstream& infile, std::ofstream& outfile, std::string s1, std::string s2)
 {
 	std::string	line;
 	std::size_t	found;
@@ -43,7 +43,7 @@ int	main(int argc, char *argv[])
 	std::ifstream	infile;
 	std::ofstream	outfile;
 
-	if (argc != 4 || !argv[2][0])
+	if (argc != 4 || !argv[1][0] || !argv[2][0])
 	{
 		std::cout << "Usage: ./sed_is_for_losers <filename> <find_string> <replace_string>" << std::endl;
 		return (1);
