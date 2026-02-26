@@ -12,7 +12,7 @@ Fixed::Fixed(const Fixed	&other) :
 	std::cout << "Copy constructor called" << std::endl;
 }
 
-Fixed& Fixed::operator=(const Fixed	&other)
+Fixed &Fixed::operator=(const Fixed	&other)
 {
 	if (this == &other)
 		return (*this);
