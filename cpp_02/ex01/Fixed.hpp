@@ -2,19 +2,20 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <cmath>
 
 class Fixed
 {
 	public:
 		Fixed();
-		Fixed(const int	int_value);
-		Fixed(const float	float_value);
-		Fixed(const Fixed	&other);
-		Fixed &operator=(const Fixed	&other);
+		Fixed(const int int_value);
+		Fixed(const float float_value);
+		Fixed(const Fixed &other);
+		Fixed &operator=(const Fixed &other);
 		~Fixed();
 
 		int	getRawBits(void) const;
-		void	setRawBits(const int	raw);
+		void	setRawBits(int const raw);
 		int	toInt(void) const;
 		float	toFloat(void) const;
 	private:

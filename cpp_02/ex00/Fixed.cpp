@@ -6,13 +6,13 @@ Fixed::Fixed() :
 	std::cout << "Constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed	&other) :
+Fixed::Fixed(const Fixed &other) :
 	value(other.getRawBits())
 {
 	std::cout << "Copy constructor called" << std::endl;
 }
 
-Fixed &Fixed::operator=(const Fixed	&other)
+Fixed &Fixed::operator=(const Fixed &other)
 {
 	if (this == &other)
 		return (*this);
@@ -32,7 +32,7 @@ int	Fixed::getRawBits(void) const
 	return (this->value);
 }
 
-void	Fixed::setRawBits(const int	raw)
+void	Fixed::setRawBits(int const raw)
 {
 	std::cout << "setRawBits called" << std::endl;
 	this->value = raw;
