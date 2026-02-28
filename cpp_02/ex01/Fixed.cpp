@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ejakob <ejakob@student.42vienna.com>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/28 10:51:35 by ejakob            #+#    #+#             */
+/*   Updated: 2026/02/28 10:51:36 by ejakob           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "Fixed.hpp"
 
 Fixed::Fixed() :
@@ -9,12 +21,12 @@ Fixed::Fixed() :
 Fixed::Fixed(const int int_value)
 {
 	std::cout << "Int constructor called" << std::endl;
-	value = int_value << fractional_bits;
+	this->value = int_value << this->fractional_bits;
 }
 
 Fixed::Fixed(const float float_value)
 {
-	std::cout << "Int constructor called" << std::endl;
+	std::cout << "Float constructor called" << std::endl;
 	this->value = roundf(float_value * (1 << this->fractional_bits));
 }
 
@@ -29,7 +41,7 @@ Fixed &Fixed::operator=(const Fixed &other)
 	if (this == &other)
 		return (*this);
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->value = other.getRawBits();
+	this->setRawBits(other.getRawBits());
 	return (*this);
 }
 

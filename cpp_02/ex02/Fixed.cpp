@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ejakob <ejakob@student.42vienna.com>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/28 10:54:52 by ejakob            #+#    #+#             */
+/*   Updated: 2026/02/28 11:02:23 by ejakob           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "Fixed.hpp"
 
 Fixed::Fixed() : value(0) {}
 
 Fixed::Fixed(const int int_value)
 {
-	value = int_value << fractional_bits;
+	this->value = int_value << this->fractional_bits;
 }
 
 Fixed::Fixed(const float float_value)
@@ -19,7 +31,7 @@ Fixed	&Fixed::operator=(const Fixed &other)
 {
 	if (this == &other)
 		return (*this);
-	this->value = other.getRawBits();
+	this->setRawBits(other.getRawBits());
 	return (*this);
 }
 
@@ -41,32 +53,32 @@ int	Fixed::toInt(void) const
 
 bool	Fixed::operator>(const Fixed &other) const
 {
-	return (value > other.value);
+	return (this->value > other.value);
 }
 
 bool	Fixed::operator<(const Fixed &other) const
 {
-	return (value < other.value);
+	return (this->value < other.value);
 }
 
 bool	Fixed::operator>=(const Fixed &other) const
 {
-	return (value >= other.value);
+	return (this->value >= other.value);
 }
 
 bool	Fixed::operator<=(const Fixed &other) const
 {
-	return (value <= other.value);
+	return (this->value <= other.value);
 }
 
 bool	Fixed::operator==(const Fixed &other) const
 {
-	return (value == other.value);
+	return (this->value == other.value);
 }
 
 bool	Fixed::operator!=(const Fixed &other) const
 {
-	return (value != other.value);
+	return (this->value != other.value);
 }
 
 Fixed	Fixed::operator+(const Fixed &other) const
@@ -91,27 +103,27 @@ Fixed	Fixed::operator/(const Fixed &other) const
 
 Fixed	&Fixed::operator++(void)
 {
-	value++;
+	this->value++;
 	return (*this);
 }
 
 Fixed	Fixed::operator++(int)
 {
 	Fixed	old(*this);
-	value++;
+	this->value++;
 	return (old);
 }
 
 Fixed	&Fixed::operator--(void)
 {
-	value--;
+	this->value--;
 	return (*this);
 }
 
 Fixed	Fixed::operator--(int)
 {
 	Fixed	old(*this);
-	value--;
+	this->value--;
 	return (old);
 }
 

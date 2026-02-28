@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ejakob <ejakob@student.42vienna.com>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/28 11:02:33 by ejakob            #+#    #+#             */
+/*   Updated: 2026/02/28 11:02:34 by ejakob           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
@@ -20,11 +32,11 @@ class Fixed
 		float	toFloat(void) const;
 
 		bool	operator>(const Fixed &other) const;
-		bool	operator<(const Fixed	&other) const;
-		bool	operator>=(const Fixed	&other) const;
-		bool	operator<=(const Fixed	&other) const;
-		bool	operator==(const Fixed	&other) const;
-		bool	operator!=(const Fixed	&other) const;
+		bool	operator<(const Fixed &other) const;
+		bool	operator>=(const Fixed &other) const;
+		bool	operator<=(const Fixed &other) const;
+		bool	operator==(const Fixed &other) const;
+		bool	operator!=(const Fixed &other) const;
 
 		Fixed	operator+(const Fixed &other) const;
 		Fixed	operator-(const Fixed &other) const;
